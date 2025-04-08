@@ -1,0 +1,15 @@
+# Rule for detecting network operations
+rule:
+  meta:
+    name: network communication
+    namespace: network/communication
+    description: Identifies network communication operations (Native)
+    author: Mini-Capa
+  features:
+    - or:
+      # Native layer network APIs
+      - api: libc.socket
+      - api: libc.connect
+      - api: libc.send
+      - api: libc.recv
+      # Could add Java network APIs here if needed

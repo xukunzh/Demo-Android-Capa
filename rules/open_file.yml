@@ -1,0 +1,15 @@
+# Rule for detecting file operations including native APIs
+rule:
+  meta:
+    name: open file
+    namespace: file-system/access
+    description: Identifies file opening operations (Java)
+    author: Mini-Capa
+  features:
+    - or:
+      - api: java.io.File.<init>
+      - api: java.io.FileInputStream.<init>
+      - api: java.io.FileOutputStream.<init>
+      - api: android.content.Context.openFileOutput
+      - api: android.content.Context.openFileInput
+      - api: android.content.res.AssetManager.open
